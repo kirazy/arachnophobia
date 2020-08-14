@@ -16,19 +16,19 @@ local sprite_fields = {
 
 local spidertron = data.raw["spider-vehicle"]["spidertron"]
 
-local function sanitize_spidertron_legs(leg)
+-- Cleanup all the legs
+for n = 1, 8 do
     -- Fetch the leg
-    spider_leg = data.raw["spider-leg"]["spidertron-leg-"..leg]
+    spider_leg = data.raw["spider-leg"]["spidertron-leg-"..n]
 
     -- Iterate through the graphics set and eliminate the sprite fields
     for _, field in pairs(sprite_fields) do
         spider_leg.graphics_set[field] = nil
-        spider_leg.working_sound = nil
     end
-end
 
--- Cleanup all the legs
-for n = 1, 8 do
-    sanitize_spidertron_legs(n)
+    -- Silence the legs
+    spider_leg.working_sound = nil
+
+    -- Hide footstep particles
     spidertron.spider_engine.legs[n].leg_hit_the_ground_trigger = nil
 end
