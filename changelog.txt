@@ -3,4 +3,4 @@ Version: 1.0.1
 Date: 2020.08.14
   Features:
     - Initial release; hides the legs of the spidertron
-    - Changes to icon, remnants, particle effects at the invisible feet forthcoming
+    - Changes to icon, remnants, and the sound of footsteps forthcoming
