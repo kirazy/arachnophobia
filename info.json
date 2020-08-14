@@ -1,0 +1,13 @@
+{
+  "name": "arachnophobia",
+  "version": "1.0.1",
+  "factorio_version": "1.0",
+  "title": "Arachnophobia",
+  "author": "Kirazy",
+  "contact": "kirazy@live.com",
+  "description": "Turns the Spidertron into a Hovercraft for players with arachnophobia.",
+  "dependencies": 
+  [	
+    "base >= 1.0.0"
+  ]
+}
