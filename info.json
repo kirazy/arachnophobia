@@ -5,7 +5,7 @@
   "title": "Arachnophobia",
   "author": "Kirazy",
   "contact": "kirazy@live.com",
-  "description": "Turns the Spidertron into a Hovercraft for players with arachnophobia.",
+  "description": "Turns the Spidertron into a hovercraft for those individuals with Arachnophobia.",
   "dependencies": 
   [	
     "base >= 1.0.0"
