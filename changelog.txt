@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.2
-Date: 2020.08.XX
+Date: 2020.08.14
+  Features:
+    - Added setting `Display laser feet`, default on, which displays the locations of the Spidertron's feet
   Changes:
     - Function cleanup
 ---------------------------------------------------------------------------------------------------
