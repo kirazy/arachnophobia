@@ -5,6 +5,7 @@
   "title": "Arachnophobia",
   "author": "Kirazy",
   "contact": "kirazy@live.com",
+  "homepage": "https://forums.factorio.com/viewtopic.php?f=190&t=88051",
   "dependencies": 
   [	
     "base >= 1.0.0"

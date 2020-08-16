@@ -291,34 +291,21 @@ for n = 1, 8 do
             bottom_end = {
                 layers = {
                     {
-                        filename = "__arachnophobia__/graphics/spidertron-legs-lower-tip.png",
-                        width = 18,
-                        height = 56,
+                        filename = "__arachnophobia__/graphics/hr-spidertron-legs-lower-tip.png",
+                        width = 34,
+                        height = 112,
                         shift = util.by_pixel(0, -21),
-                        hr_version = {
-                            filename = "__arachnophobia__/graphics/hr-spidertron-legs-lower-tip.png",
-                            width = 34,
-                            height = 112,
-                            shift = util.by_pixel(0, -21),
-                            scale = 0.5,
-                        }
+                        scale = 0.75,
                     },
                     -- Illuminate the laser light, pending support in base game
                     -- {
-                    --     filename = "__arachnophobia__/graphics/spidertron-legs-lower-tip-light.png",
-                    --     width = 18,
-                    --     height = 56,
+                    --     filename = "__arachnophobia__/graphics/hr-spidertron-legs-lower-tip-light.png",
+                    --     width = 34,
+                    --     height = 112,
                     --     shift = util.by_pixel(0, -21),
                     --     draw_as_sprite = false,
                     --     draw_as_light = true,
-                    --     hr_version = {
-                    --         filename = "__arachnophobia__/graphics/hr-spidertron-legs-lower-tip-light.png",
-                    --         width = 34,
-                    --         height = 112,
-                    --         shift = util.by_pixel(0, -21),
-                    --         draw_as_sprite = false,
-                    --         draw_as_light = true,
-                    --     }
+                    --     scale = 0.75,
                     -- }
                 }
             },

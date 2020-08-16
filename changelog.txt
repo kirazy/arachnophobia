@@ -7,8 +7,8 @@ Date: 2020.08.XX
     - Players may change the legs from being visible to "hidden" or the feet to "laser-pointers", using the "Leg display style" setting
     - Players may choose whether to display dust particles when the Spidertron walks using the "Display dust particles" setting
     - Players may mute the legs of the Spidertron using the "Mute legs" setting
-  Bugfixes:
-    - Fixed that the laser-pointer feet were not scaled properly at high resolution
+  Changes:
+    - Adjusted the laser-pointer feet, reducing the scale to 0.75
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.2
 Date: 2020.08.14
