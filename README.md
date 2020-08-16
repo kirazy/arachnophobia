@@ -14,10 +14,10 @@ You are welcome to help with localization, please use [this Crowdin project](htt
 *Written for version 1.0.3, which is ready, pending deployment of a fix for crash-issues related to loading saves with existing Spidertrons after changing the number of legs.*
 
 * **Number of legs**  
-Choose how many legs are displayed, selecting from two (2) legs through to eight (8) legs. [Click here for a preview of all seven configurations.](https://i.imgur.com/Ug2S2Zc.png)
+Choose how many legs are displayed, selecting from two (2) legs through to eight (8) legs. [Click here for a preview of all seven configurations; warning: 8 legged version is present.](https://i.imgur.com/Ug2S2Zc.png)
 
 * **Leg Display Style**  
-Choose how legs are displayed by hiding them, replacing the Spidertron's legs with laser-pointers at the feet, or leaving them visible. [Click here for a preview of the three settings.](https://i.imgur.com/PnJ4rOX.png)
+Choose how legs are displayed by hiding them, replacing the Spidertron's legs with laser-pointers at the feet, or leaving them visible. [Click here for a preview of the three settings; warning: 8 legged version is present.](https://i.imgur.com/PnJ4rOX.png)
   
 * **Display dust particles**  
 Some players may prefer to have dust particles, even with invisible legs, but for those that do not, toggle them off using this setting.
