@@ -1,7 +1,7 @@
 # Arachnophobia
 
 **Making the Spidertron friendly for individuals with arachnophobia**  
-Provides configuration options to make the Spidertron playable for arachnophobic players. Dy default, hides the legs of the Spidertron, displaying laser-pointers at the feet. Includes options to change the number of legs as an alternative to hiding them.
+Provides configuration options to make the Spidertron playable for arachnophobic players. By default, hides the legs of the Spidertron, displaying laser-pointers at the feet. Includes options to change the number of legs as an alternative to hiding them.
 
 **Suggestions and Bug Reports**  
 I want to make this as accessible and supportive as possible, if you would like to see additional features or changes, please do let me know on the [mod portal](https://mods.factorio.com/mod/arachnophobia/discussion), [forums](https://forums.factorio.com/viewtopic.php?f=190&t=88051), or an [issue](https://github.com/kirazy/arachnophobia/issues) here on GitHub. I am also on the Factorio Discord (Kira#1860).
