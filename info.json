@@ -1,11 +1,10 @@
 {
   "name": "arachnophobia",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "factorio_version": "1.0",
   "title": "Arachnophobia",
   "author": "Kirazy",
   "contact": "kirazy@live.com",
-  "description": "Hides the legs of the Spidertron for those players with arachnophobia.",
   "dependencies": 
   [	
     "base >= 1.0.0"
