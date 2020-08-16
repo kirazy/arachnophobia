@@ -270,7 +270,7 @@ local leg_configurations = {
 }
 
 -- Fetch the spidertron
-local spidertron = data.raw["spider-vehicle"]["spidertron"]
+local spidertron_entity = data.raw["spider-vehicle"]["spidertron"]
 
 -- Make adjustments to the legs
 for n = 1, 8 do
@@ -328,7 +328,7 @@ end
 local num_legs = settings.startup["arachnophobia-number-of-legs"].value
 
 -- Clear the legs table
-spidertron.spider_engine.legs = {}
+spidertron_entity.spider_engine.legs = {}
 
 for _, leg_details in pairs(leg_configurations["leg-"..num_legs]) do
     local leg = {
@@ -339,12 +339,57 @@ for _, leg_details in pairs(leg_configurations["leg-"..num_legs]) do
         leg_hit_the_ground_trigger = get_leg_hit_the_ground_trigger()
     }
 
-    table.insert(spidertron.spider_engine.legs, leg)
+    table.insert(spidertron_entity.spider_engine.legs, leg)
 end
 
 -- Hide footstep particles
 if settings.startup["arachnophobia-display-dust-particles"].value == false then
-    for leg, _ in pairs(spidertron.spider_engine.legs) do
-        spidertron.spider_engine.legs[leg].leg_hit_the_ground_trigger = nil
+    for leg, _ in pairs(spidertron_entity.spider_engine.legs) do
+        spidertron_entity.spider_engine.legs[leg].leg_hit_the_ground_trigger = nil
     end
 end
+
+-- Fetch the rest of the spidertron prototypes
+local spidertron_item = data.raw["item"]["spidertron"]
+local spidertron_explosion = data.raw["explosion"]["spidertron-explosion"]
+local spidertron_remnant = data.raw["corpse"]["spidertron-remnant"]
+local spidertron_technology = data.raw["technology"]["spidertron"]
+
+-- Figure out what icon we need to use
+local icon_base = "__arachnophobia__/graphics/icons/spidertron-icon-"
+local technology_icon_base = "__arachnophobia__/graphics/technology/spidertron-technology-"
+local spidertron_icon_path, spidertron_technology_icon_path
+
+if settings.startup["arachnophobia-leg-visibility"].value == "hidden" then
+    spidertron_icon_path = icon_base.."hidden.png"
+    spidertron_technology_icon_path = technology_icon_base.."hidden.png"
+elseif settings.startup["arachnophobia-leg-visibility"].value == "laser" then
+    spidertron_icon_path = icon_base.."laser-pointer-"..num_legs..".png"
+    spidertron_technology_icon_path = technology_icon_base.."laser-pointer-"..num_legs..".png"
+elseif settings.startup["arachnophobia-leg-visibility"].value == "visible" then
+    spidertron_icon_path = icon_base.."visible-"..num_legs..".png"
+    spidertron_technology_icon_path = technology_icon_base.."visible-"..num_legs..".png"
+else
+    return -- We should never get here, but on the off chance we do, don't do anything more.
+end
+
+-- Assign the icons
+-- spidertron_item.icon = spidertron_icon_path
+-- spidertron_item.icons = nil
+-- spidertron_item.icon_size = 64
+-- spidertron_item.icon_mipmaps = 4
+
+-- spidertron_explosion.icon = spidertron_icon_path
+-- spidertron_explosion.icons = nil
+-- spidertron_explosion.icon_size = 64
+-- spidertron_explosion.icon_mipmaps = 4
+
+-- spidertron_remnant.icon = spidertron_icon_path
+-- spidertron_remnant.icons = nil
+-- spidertron_remnant.icon_size = 64
+-- spidertron_remnant.icon_mipmaps = 4
+
+-- spidertron_technology.icon = spidertron_technology_icon_path
+-- spidertron_technology.icons = nil
+-- spidertron_technology.icon_size = 128
+-- spidertron_technology.icon_mipmaps = nil
