@@ -3,6 +3,10 @@
 --     
 -- See LICENSE.md in the project directory for license information.
 
+-- Setup constants
+arachnophobia = {}
+arachnophobia.directory = "__arachnophobia__/graphics"
+
 local sprite_fields = {
     "upper_part",
     "lower_part",
@@ -15,7 +19,7 @@ local sprite_fields = {
 }
 
 -- Index of standard legs and mount positions
-local leg_index = {
+arachnophobia.leg_index = {
     -- Right Side (Back to front)
     {leg = "spidertron-leg-1", mount_position = util.by_pixel(15, -22)},
     {leg = "spidertron-leg-2", mount_position = util.by_pixel(23, -10)},
@@ -29,244 +33,185 @@ local leg_index = {
     {leg = "spidertron-leg-8", mount_position = util.by_pixel(-15, 17)},
 
     -- Center-line (Back to front)
-    {leg = "spidertron-leg-5", mount_position = util.by_pixel(0, -24)}, -- Rear
-    {leg = "spidertron-leg-8", mount_position = util.by_pixel(0, 0)}, -- Center
+    {leg = "spidertron-leg-5", mount_position = util.by_pixel(0, -24)},
 }
 
 local leg_configurations = {
-    ["leg-1"] = {
-        { -- 10
-            leg = leg_index[10].leg,
-            blocking_legs = {1},
-            ground_position = {0, 0},
-            mount_position = leg_index[10].mount_position,
-        }
-    },
-    ["leg-2"] = {
+    [2] = {
         { -- 3
-            leg = leg_index[3].leg,
+            leg = arachnophobia.leg_index[3].leg,
             ground_position = {3, 0}, 
             blocking_legs = {2},
-            mount_position = leg_index[3].mount_position,
+            mount_position = arachnophobia.leg_index[3].mount_position,
         },
         { -- 7
-            leg = leg_index[7].leg,
+            leg = arachnophobia.leg_index[7].leg,
             ground_position = {-3, 0},
             blocking_legs = {1},
-            mount_position = leg_index[7].mount_position,
+            mount_position = arachnophobia.leg_index[7].mount_position,
 
         }
     },
-    ["leg-3"] = {
+    [3] = {
         { -- 3
-            leg = leg_index[3].leg,
+            leg = arachnophobia.leg_index[3].leg,
             ground_position = {2.875, 1.625},
-            blocking_legs = {3},
-            mount_position = leg_index[3].mount_position,
+            blocking_legs = {2, 3},
+            mount_position = arachnophobia.leg_index[3].mount_position,
         },
         { -- 7
-            leg = leg_index[7].leg,
+            leg = arachnophobia.leg_index[7].leg,
             ground_position = {-2.875, 1.625},
-            blocking_legs = {3},
-            mount_position = leg_index[7].mount_position,
+            blocking_legs = {1, 3},
+            mount_position = arachnophobia.leg_index[7].mount_position,
         },
         { -- 9
-            leg = leg_index[9].leg,
+            leg = arachnophobia.leg_index[9].leg,
             ground_position = {0, -3.25},
             blocking_legs = {1, 2},
-            mount_position = leg_index[9].mount_position,
+            mount_position = arachnophobia.leg_index[9].mount_position,
         },
     },
-    ["leg-4"] = {
+    [4] = {
         { -- 1
-            leg = leg_index[1].leg,
+            leg = arachnophobia.leg_index[1].leg,
             ground_position = {2.625, -2},
             blocking_legs = {2},
-            mount_position = leg_index[1].mount_position,
+            mount_position = arachnophobia.leg_index[1].mount_position,
         },
         { -- 4
-            leg = leg_index[4].leg,
+            leg = arachnophobia.leg_index[4].leg,
             ground_position = {2.625, 2},
             blocking_legs = {1},
-            mount_position = leg_index[4].mount_position,
+            mount_position = arachnophobia.leg_index[4].mount_position,
         },
         { -- 5
-            leg = leg_index[6].leg,
+            leg = arachnophobia.leg_index[6].leg,
             ground_position = {-2.625, -2},
             blocking_legs = {4},
-            mount_position = leg_index[6].mount_position,
+            mount_position = arachnophobia.leg_index[6].mount_position,
         },
         { -- 8
-            leg = leg_index[8].leg,
+            leg = arachnophobia.leg_index[8].leg,
             ground_position = {-2.625, 2},
             blocking_legs = {3},
-            mount_position = leg_index[8].mount_position,
+            mount_position = arachnophobia.leg_index[8].mount_position,
         },
     },
-    ["leg-5"] = {
+    [5] = {
         { -- 2
-            leg = leg_index[2].leg,
+            leg = arachnophobia.leg_index[2].leg,
             ground_position = {3, -1},
             blocking_legs = {5, 2},
-            mount_position = leg_index[2].mount_position,
+            mount_position = arachnophobia.leg_index[2].mount_position,
         },
         { -- 4
-            leg = leg_index[4].leg,
+            leg = arachnophobia.leg_index[4].leg,
             ground_position = {2, 2.75},
-            blocking_legs = {1},
-            mount_position = leg_index[4].mount_position,
+            blocking_legs = {1, 4},
+            mount_position = arachnophobia.leg_index[4].mount_position,
         },
         { -- 6
-            leg = leg_index[6].leg,
+            leg = arachnophobia.leg_index[6].leg,
             ground_position = {-3, -1},
             blocking_legs = {5, 4},
-            mount_position = leg_index[6].mount_position,
+            mount_position = arachnophobia.leg_index[6].mount_position,
         },
         { -- 8
-            leg = leg_index[8].leg,
+            leg = arachnophobia.leg_index[8].leg,
             ground_position = {-2, 2.75},
-            blocking_legs = {3},
-            mount_position = leg_index[8].mount_position,
+            blocking_legs = {2, 3},
+            mount_position = arachnophobia.leg_index[8].mount_position,
         },
         { -- 9
-            leg = leg_index[9].leg,
+            leg = arachnophobia.leg_index[9].leg,
             ground_position = {0, -3.25},
             blocking_legs = {1, 3},
-            mount_position = leg_index[9].mount_position,
+            mount_position = arachnophobia.leg_index[9].mount_position,
         },
     },
-    ["leg-6"] = {
+    [6] = {
         { -- 2
-            leg = leg_index[2].leg,
+            leg = arachnophobia.leg_index[2].leg,
             ground_position = {2.25, -2.5},
             blocking_legs = {2},
-            mount_position = leg_index[2].mount_position,
+            mount_position = arachnophobia.leg_index[2].mount_position,
         },
         { -- 3
-            leg = leg_index[3].leg,
+            leg = arachnophobia.leg_index[3].leg,
             ground_position = {3.25, 0},
             blocking_legs = {1, 3},
-            mount_position = leg_index[3].mount_position,
+            mount_position = arachnophobia.leg_index[3].mount_position,
         },
         { -- 4
-            leg = leg_index[4].leg,
+            leg = arachnophobia.leg_index[4].leg,
             ground_position = {2.25, 2.5},
             blocking_legs = {2},
-            mount_position = leg_index[4].mount_position,
+            mount_position = arachnophobia.leg_index[4].mount_position,
         },
         { -- 6
-            leg = leg_index[6].leg,
+            leg = arachnophobia.leg_index[6].leg,
             ground_position = {-2.25, -2.5},
             blocking_legs = {5},
-            mount_position = leg_index[6].mount_position,
+            mount_position = arachnophobia.leg_index[6].mount_position,
         },
         { -- 7
-            leg = leg_index[7].leg,
+            leg = arachnophobia.leg_index[7].leg,
             ground_position = {-3.25, 0},
             blocking_legs = {4, 6},
-            mount_position = leg_index[7].mount_position,
+            mount_position = arachnophobia.leg_index[7].mount_position,
         },
         { -- 8
-            leg = leg_index[8].leg,
+            leg = arachnophobia.leg_index[8].leg,
             ground_position = {-2.25, 2.5},
             blocking_legs = {5},
-            mount_position = leg_index[8].mount_position,
+            mount_position = arachnophobia.leg_index[8].mount_position,
         },
     }, 
-    ["leg-7"] = {
+    [7] = {
         { -- 2
-            leg = leg_index[2].leg,
+            leg = arachnophobia.leg_index[2].leg,
             ground_position = {2.625, -2},
             blocking_legs = {2},
-            mount_position = leg_index[2].mount_position,
+            mount_position = arachnophobia.leg_index[2].mount_position,
         },
         { -- 3
-            leg = leg_index[3].leg,
+            leg = arachnophobia.leg_index[3].leg,
             ground_position = {3, 0.75},
             blocking_legs = {1, 3},
-            mount_position = leg_index[3].mount_position,
+            mount_position = arachnophobia.leg_index[3].mount_position,
         },
         { -- 4
-            leg = leg_index[4].leg,
+            leg = arachnophobia.leg_index[4].leg,
             ground_position = {1.625, 3},
             blocking_legs = {2},
-            mount_position = leg_index[4].mount_position,
+            mount_position = arachnophobia.leg_index[4].mount_position,
         },
         { -- 6
-            leg = leg_index[6].leg,
+            leg = arachnophobia.leg_index[6].leg,
             ground_position = {-2.625, -2},
             blocking_legs = {5},
-            mount_position = leg_index[6].mount_position,
+            mount_position = arachnophobia.leg_index[6].mount_position,
         },
         { -- 7
-            leg = leg_index[7].leg,
+            leg = arachnophobia.leg_index[7].leg,
             ground_position = {-3, 0.75},
             blocking_legs = {4, 6},
-            mount_position = leg_index[7].mount_position,
+            mount_position = arachnophobia.leg_index[7].mount_position,
         },
         { -- 8
-            leg = leg_index[8].leg,
+            leg = arachnophobia.leg_index[8].leg,
             ground_position = {-1.625, 3},
             blocking_legs = {5},
-            mount_position = leg_index[8].mount_position,
+            mount_position = arachnophobia.leg_index[8].mount_position,
         },
         { -- 9
-            leg = leg_index[9].leg,
+            leg = arachnophobia.leg_index[9].leg,
             ground_position = {0, -3.25},
             blocking_legs = {1, 2},
-            mount_position = leg_index[9].mount_position,
+            mount_position = arachnophobia.leg_index[9].mount_position,
         },
     },
-    ["leg-8"] = {
-        { -- 1
-            leg = leg_index[1].leg,
-            ground_position = {2.25, -2.5},
-            blocking_legs = {2},
-            mount_position = leg_index[1].mount_position,
-        },
-        { -- 2
-            leg = leg_index[2].leg,
-            ground_position = {3, -1}, 
-            blocking_legs = {1, 3},
-            mount_position = leg_index[2].mount_position,
-        },
-        { -- 3
-            leg = leg_index[3].leg,
-            ground_position = {3, 1},
-            blocking_legs = {2, 4},
-            mount_position = leg_index[3].mount_position,
-        },
-        { -- 4
-            leg = leg_index[4].leg,
-            ground_position = {2.25, 2.5},
-            blocking_legs = {3},
-            mount_position = leg_index[4].mount_position,
-        },
-        { -- 5
-            leg = leg_index[5].leg,
-            ground_position = {-2.25, -2.5},
-            blocking_legs = {6},
-            mount_position = leg_index[5].mount_position,
-        },
-        { -- 6
-            leg = leg_index[6].leg,
-            ground_position = {-3, -1},
-            blocking_legs = {5, 7}, 
-            mount_position = leg_index[6].mount_position,
-        },
-        { -- 7
-            leg = leg_index[7].leg,
-            ground_position = {-3, 1},
-            blocking_legs = {6, 8},
-            mount_position = leg_index[7].mount_position,
-        },
-        { -- 8
-            leg = leg_index[8].leg,
-            ground_position = {-2.25, 2.5},
-            blocking_legs = {7}, 
-            mount_position = leg_index[8].mount_position,
-        }
-    }
 }
 
 -- Fetch the spidertron
@@ -291,7 +236,7 @@ for n = 1, 8 do
             bottom_end = {
                 layers = {
                     {
-                        filename = "__arachnophobia__/graphics/hr-spidertron-legs-lower-tip.png",
+                        filename = arachnophobia.directory.."/hr-spidertron-legs-lower-tip.png",
                         width = 34,
                         height = 112,
                         shift = util.by_pixel(0, -21),
@@ -299,7 +244,7 @@ for n = 1, 8 do
                     },
                     -- Illuminate the laser light, pending support in base game
                     -- {
-                    --     filename = "__arachnophobia__/graphics/hr-spidertron-legs-lower-tip-light.png",
+                    --     filename = arachnophobia.directory.."/hr-spidertron-legs-lower-tip-light.png",
                     --     width = 34,
                     --     height = 112,
                     --     shift = util.by_pixel(0, -21),
@@ -324,24 +269,6 @@ for n = 1, 8 do
     end
 end
 
--- Make adjustments to the number of legs and associated mount points
-local num_legs = settings.startup["arachnophobia-number-of-legs"].value
-
--- Clear the legs table
-spidertron_entity.spider_engine.legs = {}
-
-for _, leg_details in pairs(leg_configurations["leg-"..num_legs]) do
-    local leg = {
-        leg = leg_details.leg,
-        mount_position = leg_details.mount_position,
-        ground_position = leg_details.ground_position,
-        blocking_legs = leg_details.blocking_legs,
-        leg_hit_the_ground_trigger = get_leg_hit_the_ground_trigger()
-    }
-
-    table.insert(spidertron_entity.spider_engine.legs, leg)
-end
-
 -- Hide footstep particles
 if settings.startup["arachnophobia-display-dust-particles"].value == false then
     for leg, _ in pairs(spidertron_entity.spider_engine.legs) do
@@ -349,47 +276,86 @@ if settings.startup["arachnophobia-display-dust-particles"].value == false then
     end
 end
 
--- Fetch the rest of the spidertron prototypes
-local spidertron_item = data.raw["item"]["spidertron"]
-local spidertron_explosion = data.raw["explosion"]["spidertron-explosion"]
-local spidertron_remnant = data.raw["corpse"]["spidertron-remnant"]
-local spidertron_technology = data.raw["technology"]["spidertron"]
+if settings.startup["arachnophobia-enable-leg-override"].value then
+    -- Make adjustments to the number of legs and associated mount points
+    local num_legs = settings.startup["arachnophobia-number-of-legs"].value
 
--- Figure out what icon we need to use
-local icon_base = "__arachnophobia__/graphics/icons/spidertron-icon-"
-local technology_icon_base = "__arachnophobia__/graphics/technology/spidertron-technology-"
-local spidertron_icon_path, spidertron_technology_icon_path
+    if num_legs == 8 then
+        -- Make no changes
+    else
+        -- Clear the legs table
+        spidertron_entity.spider_engine.legs = {}
 
-if settings.startup["arachnophobia-leg-visibility"].value == "hidden" then
-    spidertron_icon_path = icon_base.."hidden.png"
-    spidertron_technology_icon_path = technology_icon_base.."hidden.png"
-elseif settings.startup["arachnophobia-leg-visibility"].value == "laser" then
-    spidertron_icon_path = icon_base.."laser-pointer-"..num_legs..".png"
-    spidertron_technology_icon_path = technology_icon_base.."laser-pointer-"..num_legs..".png"
-elseif settings.startup["arachnophobia-leg-visibility"].value == "visible" then
-    spidertron_icon_path = icon_base.."visible-"..num_legs..".png"
-    spidertron_technology_icon_path = technology_icon_base.."visible-"..num_legs..".png"
-else
-    return -- We should never get here, but on the off chance we do, don't do anything more.
+        for _, leg_details in pairs(leg_configurations[num_legs]) do
+            local leg = {
+                leg = leg_details.leg,
+                mount_position = leg_details.mount_position,
+                ground_position = leg_details.ground_position,
+                blocking_legs = leg_details.blocking_legs,
+                leg_hit_the_ground_trigger = get_leg_hit_the_ground_trigger()
+            }
+
+            if (num_legs == 3 or num_legs == 5) then
+                data.raw["spider-leg"][leg_details.leg].movement_acceleration = 0.08
+            end
+
+            table.insert(spidertron_entity.spider_engine.legs, leg)
+        end
+    end
 end
 
--- Assign the icons
--- spidertron_item.icon = spidertron_icon_path
--- spidertron_item.icons = nil
--- spidertron_item.icon_size = 64
--- spidertron_item.icon_mipmaps = 4
 
--- spidertron_explosion.icon = spidertron_icon_path
--- spidertron_explosion.icons = nil
--- spidertron_explosion.icon_size = 64
--- spidertron_explosion.icon_mipmaps = 4
 
--- spidertron_remnant.icon = spidertron_icon_path
--- spidertron_remnant.icons = nil
--- spidertron_remnant.icon_size = 64
--- spidertron_remnant.icon_mipmaps = 4
+if settings.startup["arachnophobia-replace-icons"].value == true then
+    -- Fetch the rest of the spidertron prototypes
+    local spidertron_item = data.raw["item-with-entity-data"]["spidertron"]
+    local spidertron_explosion = data.raw["explosion"]["spidertron-explosion"]
+    local spidertron_remnant = data.raw["corpse"]["spidertron-remnants"]
+    local spidertron_technology = data.raw["technology"]["spidertron"]
 
--- spidertron_technology.icon = spidertron_technology_icon_path
--- spidertron_technology.icons = nil
--- spidertron_technology.icon_size = 128
--- spidertron_technology.icon_mipmaps = nil
+    -- Set icon path
+    local spidertron_icon_path = arachnophobia.directory.."/icons/temporary-icon.png"
+    local spidertron_technology_icon_path = arachnophobia.directory.."/technology/temporary-tech-icon.png"
+
+    -- Assign the icons
+    spidertron_item.icon = spidertron_icon_path
+    spidertron_item.icons = nil
+    spidertron_item.icon_size = 64
+    spidertron_item.icon_mipmaps = 1
+
+    spidertron_explosion.icon = spidertron_icon_path
+    spidertron_explosion.icons = nil
+    spidertron_explosion.icon_size = 64
+    spidertron_explosion.icon_mipmaps = 1
+
+    spidertron_remnant.icon = spidertron_icon_path
+    spidertron_remnant.icons = nil
+    spidertron_remnant.icon_size = 64
+    spidertron_remnant.icon_mipmaps = 1
+
+    spidertron_technology.icon = spidertron_technology_icon_path
+    spidertron_technology.icons = nil
+    spidertron_technology.icon_size = 128
+    spidertron_technology.icon_mipmaps = nil
+end
+
+
+
+-- -- Figure out what icon we need to use
+-- local icon_base = arachnophobia.directory.."/icons/spidertron-icon-"
+-- local technology_icon_base = arachnophobia.directory.."/technology/spidertron-technology-"
+-- local spidertron_icon_path, spidertron_technology_icon_path
+
+-- if settings.startup["arachnophobia-leg-visibility"].value == "hidden" then
+--     spidertron_icon_path = icon_base.."hidden.png"
+--     spidertron_technology_icon_path = technology_icon_base.."hidden.png"
+-- elseif settings.startup["arachnophobia-leg-visibility"].value == "laser" then
+--     spidertron_icon_path = icon_base.."laser-pointer-"..num_legs..".png"
+--     spidertron_technology_icon_path = technology_icon_base.."laser-pointer-"..num_legs..".png"
+-- elseif settings.startup["arachnophobia-leg-visibility"].value == "visible" then
+--     spidertron_icon_path = icon_base.."visible-"..num_legs..".png"
+--     spidertron_technology_icon_path = technology_icon_base.."visible-"..num_legs..".png"
+-- else
+--     return -- We should never get here, but on the off chance we do, don't do anything more.
+-- end
+

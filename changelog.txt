@@ -1,12 +1,15 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.3
-Date: 2020.08.XX
+Date: 2020.08.18
   Features:
     - Changed core functions and settings; by default the Spidertron has hidden legs and laser-pointer feet
     - Players may select how many legs the Spidertron has, from 2 to 8, using the "Number of legs" setting; there may be minor changes to behavior, but in general the Spidertron should be able to traverse the same as before
     - Players may change the legs from being visible to "hidden" or the feet to "laser-pointers", using the "Leg display style" setting
     - Players may choose whether to display dust particles when the Spidertron walks using the "Display dust particles" setting
     - Players may mute the legs of the Spidertron using the "Mute legs" setting
+    - Players may choose from a selection of colors for the eyes using the "Eye color" setting
+    - Four settings toggling primary, secondary, tertiary and shell banks of lights have been added
+    - A temporary setting has been added to change the technology icon and item icons to a cute rock with googly eyes, while a more comprehensive set of icons are prepared
   Changes:
     - Adjusted the laser-pointer feet, reducing the scale to 0.75
 ---------------------------------------------------------------------------------------------------
