@@ -44,6 +44,13 @@ data:extend({
         order = "c",
         default_value = true,
     },
+    {
+        type = "bool-setting",
+        name = "arachnophobia-mute-feet",
+        setting_type = "startup",
+        order = "c",
+        default_value = true,
+    },
 
     -- Configure eye properties
     {
