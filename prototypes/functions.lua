@@ -267,6 +267,11 @@ for n = 1, 8 do
     if settings.startup["arachnophobia-mute-legs"].value == true then
         spider_leg.working_sound = nil
     end
+
+    -- Silence the feet
+    if settings.startup["arachnophobia-mute-feet"].value == true then
+        spider_leg.walking_sound_volume_modifier = 0
+    end
 end
 
 -- Hide footstep particles
@@ -303,7 +308,6 @@ if settings.startup["arachnophobia-enable-leg-override"].value then
         end
     end
 end
-
 
 
 if settings.startup["arachnophobia-replace-icons"].value == true then
