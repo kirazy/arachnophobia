@@ -27,8 +27,8 @@ Silence the sound of the legs in motion.
 * **Eye Color**  
 Select from a range of 13 eye colors
 
-* **Light-up eyes**
+* **Light-up eyes**  
 Choose whether one or some or all of four sets of eyes are lit, or whether they are dark.
 
-* **Replace icons**
+* **Replace icons**  
 Choose whether to replace the Spidertron icon and technology with a cute rock with googly eyes.
