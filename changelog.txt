@@ -1,8 +1,10 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.4
-Date: 2020.08.XX
+Date: 2020.08.20
   Features:
     - Added setting `Mute feet` to silence footsteps while moving
+  Changes:
+    - Adjusted description for clarity
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.3
 Date: 2020.08.18
