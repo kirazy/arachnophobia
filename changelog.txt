@@ -1,9 +1,9 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.4
-Date: 2020.08.20
+Date: 2020.08.25
   Features:
     - Added setting `Mute feet` to silence footsteps while moving
-    - Added localization for German and Dutch with partial localization for French, Polish and Portuguese
+    - Added preliminary localization for Dutch, German, and Portuguese with partial localization for French and Polish
   Changes:
     - Adjusted description for clarity
 ---------------------------------------------------------------------------------------------------
