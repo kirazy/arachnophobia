@@ -13,12 +13,14 @@ local function create_label_sprite(hue)
                     filename = arachnophobia.directory.."/sprites/eyes-gui-icon-base.png",
                     size = 40,
                     mipmap_count = 2,
+                    flags = {"gui-icon"}
                 },
                 {
                     filename = arachnophobia.directory.."/sprites/eyes-gui-icon-mask.png",
                     size = 40,
                     tint = arachnophobia.eye_colors[hue].mask,
                     mipmap_count = 2,
+                    flags = {"gui-icon"}
                 },
                 {
                     filename = arachnophobia.directory.."/sprites/eyes-gui-icon-highlights.png",
@@ -26,6 +28,7 @@ local function create_label_sprite(hue)
                     tint = arachnophobia.eye_colors[hue].highlights,
                     blend_mode = "additive-soft",
                     mipmap_count = 2,
+                    flags = {"gui-icon"}
                 }
             },
             flags = {"gui-icon"}

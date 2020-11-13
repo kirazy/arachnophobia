@@ -1,11 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.5
+Date: 2020.11.12
+  Bugfixes:
+    - Fixed that the mask and highlights setting description sprite layers were being cropped, causing misalignment
+  Locale:
+    - Added localization for Czech, Italian, with updates for French and Polish
+---------------------------------------------------------------------------------------------------
 Version: 1.0.4
 Date: 2020.08.25
   Features:
     - Added setting `Mute feet` to silence footsteps while moving
-    - Added preliminary localization for Dutch, German, and Portuguese with partial localization for French and Polish
   Changes:
     - Adjusted description for clarity
+  Locale:
+    - Added preliminary localization for Dutch, German, and Portuguese with partial localization for French and Polish
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.3
 Date: 2020.08.18

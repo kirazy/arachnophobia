@@ -1,13 +1,13 @@
 {
   "name": "arachnophobia",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "factorio_version": "1.0",
   "title": "Arachnophobia",
   "author": "Kirazy",
   "contact": "kirazy@live.com",
   "homepage": "https://forums.factorio.com/viewtopic.php?f=190&t=88051",
-  "dependencies": 
-  [	
+  "dependencies":
+  [
     "base >= 1.0.0"
   ]
 }
