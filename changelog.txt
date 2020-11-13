@@ -4,7 +4,7 @@ Date: 2020.11.12
   Bugfixes:
     - Fixed that the mask and highlights setting description sprite layers were being cropped, causing misalignment
   Locale:
-    - Added localization for Czech, Italian, with updates for French and Polish
+    - Added localization for Czech, Italian, with additional translations for French
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.4
 Date: 2020.08.25
