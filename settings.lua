@@ -6,13 +6,6 @@
 data:extend({
     -- Configure the number of legs
     {
-        type = "bool-setting",
-        name = "arachnophobia-enable-leg-override",
-        setting_type = "startup",
-        order = "a",
-        default_value = false,
-    },
-    {
         type = "int-setting",
         name = "arachnophobia-number-of-legs",
         setting_type = "startup",

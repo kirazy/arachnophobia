@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.6
+Date: 2020.11.24
+  Features:
+    - Moved to 1.1
+  Changes:
+    - Removed warnings regarding changing the number of legs with deployed Spidertrons; this is now safe
+  Bugfixes:
+    - Fixed that when replacing the Spidertron icons, the icon displayed in the ammo panel was not changed
+---------------------------------------------------------------------------------------------------
 Version: 1.0.5
 Date: 2020.11.12
   Bugfixes:

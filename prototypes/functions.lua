@@ -1,6 +1,6 @@
 -- Copyright (c) 2020 Kirazy
 -- Part of Arachnophobia
---     
+--
 -- See LICENSE.md in the project directory for license information.
 
 -- Setup constants
@@ -40,7 +40,7 @@ local leg_configurations = {
     [2] = {
         { -- 3
             leg = arachnophobia.leg_index[3].leg,
-            ground_position = {3, 0}, 
+            ground_position = {3, 0},
             blocking_legs = {2},
             mount_position = arachnophobia.leg_index[3].mount_position,
         },
@@ -167,7 +167,7 @@ local leg_configurations = {
             blocking_legs = {5},
             mount_position = arachnophobia.leg_index[8].mount_position,
         },
-    }, 
+    },
     [7] = {
         { -- 2
             leg = arachnophobia.leg_index[2].leg,
@@ -281,34 +281,31 @@ if settings.startup["arachnophobia-display-dust-particles"].value == false then
     end
 end
 
-if settings.startup["arachnophobia-enable-leg-override"].value then
-    -- Make adjustments to the number of legs and associated mount points
-    local num_legs = settings.startup["arachnophobia-number-of-legs"].value
+-- Make adjustments to the number of legs and associated mount points
+local num_legs = settings.startup["arachnophobia-number-of-legs"].value
 
-    if num_legs == 8 then
-        -- Make no changes
-    else
-        -- Clear the legs table
-        spidertron_entity.spider_engine.legs = {}
+if num_legs == 8 then
+    -- Make no changes
+else
+    -- Clear the legs table
+    spidertron_entity.spider_engine.legs = {}
 
-        for _, leg_details in pairs(leg_configurations[num_legs]) do
-            local leg = {
-                leg = leg_details.leg,
-                mount_position = leg_details.mount_position,
-                ground_position = leg_details.ground_position,
-                blocking_legs = leg_details.blocking_legs,
-                leg_hit_the_ground_trigger = get_leg_hit_the_ground_trigger()
-            }
+    for _, leg_details in pairs(leg_configurations[num_legs]) do
+        local leg = {
+            leg = leg_details.leg,
+            mount_position = leg_details.mount_position,
+            ground_position = leg_details.ground_position,
+            blocking_legs = leg_details.blocking_legs,
+            leg_hit_the_ground_trigger = get_leg_hit_the_ground_trigger()
+        }
 
-            if (num_legs == 3 or num_legs == 5) then
-                data.raw["spider-leg"][leg_details.leg].movement_acceleration = 0.08
-            end
-
-            table.insert(spidertron_entity.spider_engine.legs, leg)
+        if (num_legs == 3 or num_legs == 5) then
+            data.raw["spider-leg"][leg_details.leg].movement_acceleration = 0.08
         end
+
+        table.insert(spidertron_entity.spider_engine.legs, leg)
     end
 end
-
 
 if settings.startup["arachnophobia-replace-icons"].value == true then
     -- Fetch the rest of the spidertron prototypes
@@ -322,6 +319,11 @@ if settings.startup["arachnophobia-replace-icons"].value == true then
     local spidertron_technology_icon_path = arachnophobia.directory.."/technology/temporary-tech-icon.png"
 
     -- Assign the icons
+    spidertron_entity.icon = spidertron_icon_path
+    spidertron_entity.icons = nil
+    spidertron_entity.icon_size = 64
+    spidertron_entity.icon_mipmaps = 1
+
     spidertron_item.icon = spidertron_icon_path
     spidertron_item.icons = nil
     spidertron_item.icon_size = 64
@@ -343,8 +345,6 @@ if settings.startup["arachnophobia-replace-icons"].value == true then
     spidertron_technology.icon_mipmaps = nil
 end
 
-
-
 -- -- Figure out what icon we need to use
 -- local icon_base = arachnophobia.directory.."/icons/spidertron-icon-"
 -- local technology_icon_base = arachnophobia.directory.."/technology/spidertron-technology-"
@@ -362,4 +362,3 @@ end
 -- else
 --     return -- We should never get here, but on the off chance we do, don't do anything more.
 -- end
-
