@@ -1,11 +1,18 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.2
+Date: 2021-04-05
+  Changes:
+    - Images are now losslessly compressed, there is a modest increase in filesize
+  Locale:
+    - Added partial localization for Vietnamese, updated localization for Brazilian Portuguese
+---------------------------------------------------------------------------------------------------
 Version: 1.1.1
-Date: 2021.02.23
+Date: 2021-02-23
   Locale:
     - Updated localization for French, with partial localization for Indonesian and Norwegian
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.0
-Date: 2020.11.24
+Date: 2020-11-24
   Features:
     - Moved to 1.1
   Changes:
@@ -14,23 +21,23 @@ Date: 2020.11.24
     - Fixed that when replacing the Spidertron icons, the icon displayed in the ammo panel was not changed
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.5
-Date: 2020.11.12
+Date: 2020-11-12
   Bugfixes:
     - Fixed that the mask and highlights setting description sprite layers were being cropped, causing misalignment
   Locale:
     - Added localization for Czech, Italian, with additional translations for French
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.4
-Date: 2020.08.25
+Date: 2020-08-25
   Features:
     - Added setting `Mute feet` to silence footsteps while moving
   Changes:
     - Adjusted description for clarity
   Locale:
-    - Added preliminary localization for Dutch, German, and Portuguese with partial localization for French and Polish
+    - Added preliminary localization for Dutch, German, and Brazilian Portuguese with partial localization for French and Polish
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.3
-Date: 2020.08.18
+Date: 2020-08-18
   Features:
     - Changed core functions and settings; by default the Spidertron has hidden legs and laser-pointer feet
     - Players may select how many legs the Spidertron has, from 2 to 8, using the `Number of legs` setting; there may be minor changes to behavior, but in general the Spidertron should be able to traverse the same as before
@@ -44,14 +51,14 @@ Date: 2020.08.18
     - Adjusted the laser-pointer feet, reducing the scale to 0.75
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.2
-Date: 2020.08.14
+Date: 2020-08-14
   Features:
     - Added setting `Display laser feet`, default on, which displays the locations of the Spidertron's feet
   Changes:
     - Function cleanup
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.1
-Date: 2020.08.14
+Date: 2020-08-14
   Features:
     - Initial release; hides the legs of the spidertron
     - Changes to icon, remnants, and the sound of footsteps forthcoming
