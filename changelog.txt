@@ -2,7 +2,7 @@
 Version: 1.1.3
 Date: ????
   Locale:
-    - Added preliminary partial localization for Russian
+    - Added localization for Russian
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.2
 Date: 2021-04-05
