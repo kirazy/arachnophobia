@@ -1,7 +1,9 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.9
 Date: ????
-  Changes:
+  Locale:
+    - Added partial localization for Chinese Simplified
+    - Updated localization for Dutch, Polish
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.8
 Date: 2021-12-11
