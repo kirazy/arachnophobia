@@ -1,4 +1,4 @@
--- Copyright (c) 2020 Kirazy
+-- Copyright (c) 2023 Kirazy
 -- Part of Arachnophobia
 --
 -- See LICENSE.md in the project directory for license information.
@@ -11,7 +11,7 @@ data:extend({
         setting_type = "startup",
         order = "ab",
         default_value = 8,
-        allowed_values = {2, 3, 4, 5, 6, 7, 8},
+        allowed_values = { 2, 3, 4, 5, 6, 7, 8 },
     },
 
     -- Configure leg display properties
@@ -21,7 +21,7 @@ data:extend({
         setting_type = "startup",
         order = "b",
         default_value = "laser",
-        allowed_values = {"hidden", "laser", "visible"}
+        allowed_values = { "hidden", "laser", "visible" }
     },
     {
         type = "bool-setting",
@@ -52,7 +52,7 @@ data:extend({
         setting_type = "startup",
         order = "d",
         default_value = "0",
-        allowed_values = {"0", "30", "60", "90", "120", "150", "180", "210", "240", "270", "300", "330", "white"}
+        allowed_values = { "0", "30", "60", "90", "120", "150", "180", "210", "240", "270", "300", "330", "white" }
     },
     {
         type = "bool-setting",

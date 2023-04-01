@@ -1,23 +1,23 @@
--- Copyright (c) 2020 Kirazy
+-- Copyright (c) 2023 Kirazy
 -- Part of Arachnophobia
 --
 -- See LICENSE.md in the project directory for license information.
 
 -- Index of eye colors
 arachnophobia.eye_colors = {
-    ["0"] = {mask = util.color("ff0000"), highlights = util.color("ff8080")},
-    ["30"] = {mask = util.color("ff8000"), highlights = util.color("ffbf80")},
-    ["60"] = {mask = util.color("ffff00"), highlights = util.color("ffff80")},
-    ["90"] = {mask = util.color("80ff00"), highlights = util.color("bfff80")},
-    ["120"] = {mask = util.color("00ff00"), highlights = util.color("80ff80")},
-    ["150"] = {mask = util.color("00ff80"), highlights = util.color("80ffbf")},
-    ["180"] = {mask = util.color("00ffff"), highlights = util.color("80ffff")},
-    ["210"] = {mask = util.color("0080ff"), highlights = util.color("80bfff")},
-    ["240"] = {mask = util.color("0000ff"), highlights = util.color("8080ff")},
-    ["270"] = {mask = util.color("8000ff"), highlights = util.color("bf80ff")},
-    ["300"] = {mask = util.color("ff00ff"), highlights = util.color("ff80ff")},
-    ["330"] = {mask = util.color("ff0080"), highlights = util.color("ff80bf")},
-    ["white"] = {mask = util.color("ffffff"), highlights = util.color("ffffff00")},
+    ["0"] = { mask = util.color("ff0000"), highlights = util.color("ff8080") },
+    ["30"] = { mask = util.color("ff8000"), highlights = util.color("ffbf80") },
+    ["60"] = { mask = util.color("ffff00"), highlights = util.color("ffff80") },
+    ["90"] = { mask = util.color("80ff00"), highlights = util.color("bfff80") },
+    ["120"] = { mask = util.color("00ff00"), highlights = util.color("80ff80") },
+    ["150"] = { mask = util.color("00ff80"), highlights = util.color("80ffbf") },
+    ["180"] = { mask = util.color("00ffff"), highlights = util.color("80ffff") },
+    ["210"] = { mask = util.color("0080ff"), highlights = util.color("80bfff") },
+    ["240"] = { mask = util.color("0000ff"), highlights = util.color("8080ff") },
+    ["270"] = { mask = util.color("8000ff"), highlights = util.color("bf80ff") },
+    ["300"] = { mask = util.color("ff00ff"), highlights = util.color("ff80ff") },
+    ["330"] = { mask = util.color("ff0080"), highlights = util.color("ff80bf") },
+    ["white"] = { mask = util.color("ffffff"), highlights = util.color("ffffff00") },
 }
 
 -- Fetch the spidertron and current eye color
@@ -40,14 +40,14 @@ spidertron.animation = {
     layers = {
         -- Base
         {
-            filename = arachnophobia.directory.."/spidertron-body.png",
+            filename = arachnophobia.directory .. "/spidertron-body.png",
             width = 66,
             height = 70,
             line_length = 8,
             direction_count = 64,
             shift = util.by_pixel(0, -19),
             hr_version = {
-                filename = arachnophobia.directory.."/hr-spidertron-body.png",
+                filename = arachnophobia.directory .. "/hr-spidertron-body.png",
                 width = 132,
                 height = 138,
                 line_length = 8,
@@ -62,7 +62,7 @@ spidertron.animation = {
 local function insert_eye_layers(name)
     -- Mask
     table.insert(spidertron.animation.layers, {
-        filename = arachnophobia.directory.."/eyes/spidertron-eyes-"..name.."-mask.png",
+        filename = arachnophobia.directory .. "/eyes/spidertron-eyes-" .. name .. "-mask.png",
         width = 66,
         height = 70,
         line_length = 8,
@@ -70,7 +70,7 @@ local function insert_eye_layers(name)
         tint = arachnophobia.eye_colors[hue].mask,
         shift = util.by_pixel(0, -19),
         hr_version = {
-            filename = arachnophobia.directory.."/eyes/hr-spidertron-eyes-"..name.."-mask.png",
+            filename = arachnophobia.directory .. "/eyes/hr-spidertron-eyes-" .. name .. "-mask.png",
             width = 132,
             height = 138,
             line_length = 8,
@@ -83,7 +83,7 @@ local function insert_eye_layers(name)
 
     -- Highlights
     table.insert(spidertron.animation.layers, {
-        filename = arachnophobia.directory.."/eyes/spidertron-eyes-"..name.."-highlights.png",
+        filename = arachnophobia.directory .. "/eyes/spidertron-eyes-" .. name .. "-highlights.png",
         width = 66,
         height = 70,
         line_length = 8,
@@ -92,7 +92,7 @@ local function insert_eye_layers(name)
         blend_mode = "additive-soft",
         shift = util.by_pixel(0, -19),
         hr_version = {
-            filename = arachnophobia.directory.."/eyes/hr-spidertron-eyes-"..name.."-highlights.png",
+            filename = arachnophobia.directory .. "/eyes/hr-spidertron-eyes-" .. name .. "-highlights.png",
             width = 132,
             height = 138,
             line_length = 8,
