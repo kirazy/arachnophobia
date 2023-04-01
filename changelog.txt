@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.10
-Date: ????
+Date: 2023-04-01
   Locale:
     - Added localization for Simplified Chinese
     - Updated Norwegian localization.
