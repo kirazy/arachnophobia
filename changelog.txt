@@ -1,13 +1,15 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.11
 Date: ????
-  Changes:
+  Locale:
+    - Added localization for Japanese
+    - Updated Vietnamese localization
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.10
 Date: 2023-04-01
   Locale:
     - Added localization for Simplified Chinese
-    - Updated Norwegian localization.
+    - Updated Norwegian localization
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.9
 Date: 2022-03-19
