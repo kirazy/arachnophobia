@@ -266,18 +266,9 @@ for n = 1, 8 do
                         width = 34,
                         height = 112,
                         shift = util.by_pixel(0, -21),
+                            draw_as_glow = true,
                         scale = 0.75,
                     },
-                    -- Illuminate the laser light, pending support in base game
-                    -- {
-                    --     filename = arachnophobia.directory.."/hr-spidertron-legs-lower-tip-light.png",
-                    --     width = 34,
-                    --     height = 112,
-                    --     shift = util.by_pixel(0, -21),
-                    --     draw_as_sprite = false,
-                    --     draw_as_light = true,
-                    --     scale = 0.75,
-                    -- }
                 }
             },
             bottom_end_length = 1,

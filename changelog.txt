@@ -2,6 +2,7 @@
 Version: 1.1.13
 Date: ????
   Changes:
+    - Laser-pointer feet are now properly lights, and will illuminate at night.
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.12
 Date: 2024-08-31
