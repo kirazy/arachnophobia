@@ -21,19 +21,19 @@ local sprite_fields = {
 -- Index of standard legs and mount positions
 arachnophobia.leg_index = {
     -- Right Side (Back to front)
-    { leg = "spidertron-leg-1", mount_position = util.by_pixel(15, -22) },
-    { leg = "spidertron-leg-2", mount_position = util.by_pixel(23, -10) },
-    { leg = "spidertron-leg-3", mount_position = util.by_pixel(25, 4) },
-    { leg = "spidertron-leg-4", mount_position = util.by_pixel(15, 17) },
+    { leg = "-leg-1", mount_position = util.by_pixel(15, -22) },
+    { leg = "-leg-2", mount_position = util.by_pixel(23, -10) },
+    { leg = "-leg-3", mount_position = util.by_pixel(25, 4) },
+    { leg = "-leg-4", mount_position = util.by_pixel(15, 17) },
 
     -- Left Side (Back to front)
-    { leg = "spidertron-leg-5", mount_position = util.by_pixel(-15, -22) },
-    { leg = "spidertron-leg-6", mount_position = util.by_pixel(-23, -10) },
-    { leg = "spidertron-leg-7", mount_position = util.by_pixel(-25, 4) },
-    { leg = "spidertron-leg-8", mount_position = util.by_pixel(-15, 17) },
+    { leg = "-leg-5", mount_position = util.by_pixel(-15, -22) },
+    { leg = "-leg-6", mount_position = util.by_pixel(-23, -10) },
+    { leg = "-leg-7", mount_position = util.by_pixel(-25, 4) },
+    { leg = "-leg-8", mount_position = util.by_pixel(-15, 17) },
 
     -- Center-line (Back to front)
-    { leg = "spidertron-leg-5", mount_position = util.by_pixel(0, -24) },
+    { leg = "-leg-5", mount_position = util.by_pixel(0, -24) },
 }
 
 local leg_configurations = {
@@ -240,126 +240,167 @@ local leg_configurations = {
     },
 }
 
--- Fetch the spidertron
-local spidertron_entity = data.raw["spider-vehicle"]["spidertron"]
+local function adjust_spidertron_legs(spidertron_name)
+    -- Make adjustments to the legs
+    for n = 1, 8 do
+        local spider_leg = data.raw["spider-leg"][spidertron_name .. "-leg-" .. n]
+        if not spider_leg then goto continue end
 
--- Make adjustments to the legs
-for n = 1, 8 do
-    -- Fetch the leg
-    spider_leg = data.raw["spider-leg"]["spidertron-leg-" .. n]
-
-    -- Hide the legs
-    if settings.startup["arachnophobia-leg-visibility"].value ~= "visible" then
-        -- Iterate through the graphics set and eliminate the sprite fields
-        for _, field in pairs(sprite_fields) do
-            spider_leg.graphics_set[field] = nil
+        -- Hide the legs
+        if settings.startup["arachnophobia-leg-visibility"].value ~= "visible" then
+            -- Iterate through the graphics set and eliminate the sprite fields
+            for _, field in pairs(sprite_fields) do
+                spider_leg.graphics_set[field] = nil
+            end
         end
-    end
 
-    -- Display laser-pointers at the feet of each leg
-    if settings.startup["arachnophobia-leg-visibility"].value == "laser" then
-        spider_leg.graphics_set.lower_part = {
-            bottom_end = {
-                layers = {
-                    {
-                        filename = arachnophobia.directory .. "/hr-spidertron-legs-lower-tip.png",
-                        width = 34,
-                        height = 112,
-                        shift = util.by_pixel(0, -21),
+        -- Display laser-pointers at the feet of each leg
+        if settings.startup["arachnophobia-leg-visibility"].value == "laser" then
+            spider_leg.graphics_set.lower_part = {
+                bottom_end = {
+                    layers = {
+                        {
+                            filename = arachnophobia.directory .. "/hr-spidertron-legs-lower-tip.png",
+                            width = 34,
+                            height = 112,
+                            shift = util.by_pixel(0, -21),
                             draw_as_glow = true,
-                        scale = 0.75,
-                    },
-                }
-            },
-            bottom_end_length = 1,
-            middle = util.empty_sprite(),
-            middle_offset_from_bottom = 0,
-            middle_offset_from_top = 0,
-            top_end = util.empty_sprite(),
-            top_end_length = 0
-        }
-    end
+                            scale = 0.75,
+                        },
+                    }
+                },
+                bottom_end_length = 1,
+                middle = util.empty_sprite(),
+                middle_offset_from_bottom = 0,
+                middle_offset_from_top = 0,
+                top_end = util.empty_sprite(),
+                top_end_length = 0
+            }
+        end
 
-    -- Silence the legs
-    if settings.startup["arachnophobia-mute-legs"].value == true then
-        spider_leg.working_sound = nil
-    end
+        -- Silence the legs
+        if settings.startup["arachnophobia-mute-legs"].value == true then
+            spider_leg.working_sound = nil
+        end
 
-    -- Silence the feet
-    if settings.startup["arachnophobia-mute-feet"].value == true then
-        spider_leg.walking_sound_volume_modifier = 0
+        -- Silence the feet
+        if settings.startup["arachnophobia-mute-feet"].value == true then
+            spider_leg.walking_sound_volume_modifier = 0
+        end
+
+        ::continue::
     end
 end
 
--- Hide footstep particles
-if settings.startup["arachnophobia-display-dust-particles"].value == false then
-    for leg, _ in pairs(spidertron_entity.spider_engine.legs) do
-        spidertron_entity.spider_engine.legs[leg].leg_hit_the_ground_trigger = nil
+-- Fetch the spidertron
+local function adjust_footstep_particles(spidertron_name)
+    local spidertron_entity = data.raw["spider-vehicle"][spidertron_name]
+    if not spidertron_entity then return end
+
+    -- Hide footstep particles
+    if settings.startup["arachnophobia-display-dust-particles"].value == false then
+        for leg, _ in pairs(spidertron_entity.spider_engine.legs) do
+            spidertron_entity.spider_engine.legs[leg].leg_hit_the_ground_trigger = nil
+        end
     end
 end
 
 -- Make adjustments to the number of legs and associated mount points
-local num_legs = settings.startup["arachnophobia-number-of-legs"].value
+local function adjust_number_of_legs(spidertron_name)
+    local spidertron_entity = data.raw["spider-vehicle"][spidertron_name]
+    if not spidertron_entity then return end
 
-if num_legs == 8 then
-    -- Make no changes
-else
-    -- Clear the legs table
-    spidertron_entity.spider_engine.legs = {}
+    local num_legs = settings.startup["arachnophobia-number-of-legs"].value
 
-    for _, leg_details in pairs(leg_configurations[num_legs]) do
-        local leg = {
-            leg = leg_details.leg,
-            mount_position = leg_details.mount_position,
-            ground_position = leg_details.ground_position,
-            blocking_legs = leg_details.blocking_legs,
-            leg_hit_the_ground_trigger = get_leg_hit_the_ground_trigger()
-        }
+    if num_legs == 8 then
+        -- Make no changes
+    else
+        -- Clear the legs table
+        spidertron_entity.spider_engine.legs = {}
 
-        if (num_legs == 3 or num_legs == 5) then
-            data.raw["spider-leg"][leg_details.leg].movement_acceleration = 0.08
+        for _, leg_details in pairs(leg_configurations[num_legs]) do
+            ---@type data.SpiderLegSpecification
+            local leg = {
+                leg = spidertron_name .. leg_details.leg,
+                mount_position = leg_details.mount_position,
+                ground_position = leg_details.ground_position,
+                blocking_legs = leg_details.blocking_legs,
+                leg_hit_the_ground_trigger = get_leg_hit_the_ground_trigger()
+            }
+
+            -- Adjust acceleration to mitigate weird tripping behavior and restore
+            -- nominal movement speed.
+            if (num_legs == 3 or num_legs == 5) then
+                data.raw["spider-leg"][leg_details.leg].movement_acceleration = 0.08
+            end
+
+            table.insert(spidertron_entity.spider_engine.legs, leg)
         end
-
-        table.insert(spidertron_entity.spider_engine.legs, leg)
     end
 end
 
-if settings.startup["arachnophobia-replace-icons"].value == true then
-    -- Fetch the rest of the spidertron prototypes
-    local spidertron_item = data.raw["item-with-entity-data"]["spidertron"]
-    local spidertron_explosion = data.raw["explosion"]["spidertron-explosion"]
-    local spidertron_remnant = data.raw["corpse"]["spidertron-remnants"]
-    local spidertron_technology = data.raw["technology"]["spidertron"]
+local function adjust_spidertron_icons(spidertron_name)
+        -- Fetch the rest of the spidertron prototypes
+        local spidertron_item = data.raw["item-with-entity-data"][spidertron_name]
+        local spidertron_entity = data.raw["spider-vehicle"][spidertron_name]
+        local spidertron_explosion = data.raw["explosion"][spidertron_name .. "-explosion"]
+        local spidertron_remnant = data.raw["corpse"][spidertron_name .. "-remnants"]
+        local spidertron_technology = data.raw["technology"][spidertron_name]
 
-    -- Set icon path
-    local spidertron_icon_path = arachnophobia.directory .. "/icons/temporary-icon.png"
-    local spidertron_technology_icon_path = arachnophobia.directory .. "/technology/temporary-tech-icon.png"
+        -- Set icon path
+        local spidertron_icon_path = arachnophobia.directory .. "/icons/temporary-icon.png"
+        local spidertron_technology_icon_path = arachnophobia.directory .. "/technology/temporary-tech-icon.png"
 
-    -- Assign the icons
-    spidertron_entity.icon = spidertron_icon_path
-    spidertron_entity.icons = nil
-    spidertron_entity.icon_size = 64
-    spidertron_entity.icon_mipmaps = 1
+        -- Assign the icons
+        if spidertron_entity then
+            spidertron_entity.icon = spidertron_icon_path
+            spidertron_entity.icons = nil
+            spidertron_entity.icon_size = 64
+            spidertron_entity.icon_mipmaps = 1
+        end
 
-    spidertron_item.icon = spidertron_icon_path
-    spidertron_item.icons = nil
-    spidertron_item.icon_size = 64
-    spidertron_item.icon_mipmaps = 1
+        if spidertron_item then
+            spidertron_item.icon = spidertron_icon_path
+            spidertron_item.icons = nil
+            spidertron_item.icon_size = 64
+            spidertron_item.icon_mipmaps = 1
+        end
 
-    spidertron_explosion.icon = spidertron_icon_path
-    spidertron_explosion.icons = nil
-    spidertron_explosion.icon_size = 64
-    spidertron_explosion.icon_mipmaps = 1
+        if spidertron_explosion then
+            spidertron_explosion.icon = spidertron_icon_path
+            spidertron_explosion.icons = nil
+            spidertron_explosion.icon_size = 64
+            spidertron_explosion.icon_mipmaps = 1
+        end
 
-    spidertron_remnant.icon = spidertron_icon_path
-    spidertron_remnant.icons = nil
-    spidertron_remnant.icon_size = 64
-    spidertron_remnant.icon_mipmaps = 1
+        if spidertron_remnant then
+            spidertron_remnant.icon = spidertron_icon_path
+            spidertron_remnant.icons = nil
+            spidertron_remnant.icon_size = 64
+            spidertron_remnant.icon_mipmaps = 1
+        end
 
-    spidertron_technology.icon = spidertron_technology_icon_path
-    spidertron_technology.icons = nil
-    spidertron_technology.icon_size = 128
-    spidertron_technology.icon_mipmaps = nil
+        if spidertron_technology then
+            spidertron_technology.icon = spidertron_technology_icon_path
+            spidertron_technology.icons = nil
+            spidertron_technology.icon_size = 128
+            spidertron_technology.icon_mipmaps = nil
+        end
+end
+
+local spidertron_names = {
+    "spidertron",
+    "constructron",
+}
+
+for _, spidertron_name in pairs(spidertron_names) do
+    adjust_spidertron_legs(spidertron_name)
+    adjust_footstep_particles(spidertron_name)
+    adjust_number_of_legs(spidertron_name)
+
+    if settings.startup["arachnophobia-replace-icons"].value == true then
+        adjust_spidertron_icons(spidertron_name)
+    end
 end
 
 -- -- Figure out what icon we need to use

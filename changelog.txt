@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.13
 Date: ????
+  Features:
+    - Added support for Constructron Continued's Constructron. Note that icon support is less than ideal and may not have desired results. Future improvements will be made with the Factorio: Space Age release.
   Changes:
     - Laser-pointer feet are now properly lights, and will illuminate at night.
 ---------------------------------------------------------------------------------------------------
