@@ -35,203 +35,203 @@ local leg_index = {
 local leg_configurations = {
     [2] = {
         {
-            -- 3
-            leg = arachnophobia.leg_index[3].leg,
+            -- 3 (Right Fwd Middle)
+            leg = leg_index[3].leg,
             ground_position = { 3, 0 },
-            blocking_legs = { 2 },
-            mount_position = arachnophobia.leg_index[3].mount_position,
+            mount_position = leg_index[3].mount_position,
+            walking_group = 1,
         },
         {
-            -- 7
-            leg = arachnophobia.leg_index[7].leg,
+            -- 7 (Left Fwd Middle)
+            leg = leg_index[7].leg,
             ground_position = { -3, 0 },
-            blocking_legs = { 1 },
-            mount_position = arachnophobia.leg_index[7].mount_position,
+            mount_position = leg_index[7].mount_position,
+            walking_group = 2,
         }
     },
     [3] = {
         {
-            -- 3
-            leg = arachnophobia.leg_index[3].leg,
+            -- 3 (Right Fwd Middle)
+            leg = leg_index[3].leg,
             ground_position = { 2.875, 1.625 },
-            blocking_legs = { 2, 3 },
-            mount_position = arachnophobia.leg_index[3].mount_position,
+            mount_position = leg_index[3].mount_position,
+            walking_group = 1,
         },
         {
-            -- 7
-            leg = arachnophobia.leg_index[7].leg,
+            -- 7 (Left Fwd Middle)
+            leg = leg_index[7].leg,
             ground_position = { -2.875, 1.625 },
-            blocking_legs = { 1, 3 },
-            mount_position = arachnophobia.leg_index[7].mount_position,
+            mount_position = leg_index[7].mount_position,
+            walking_group = 2,
         },
         {
-            -- 9
-            leg = arachnophobia.leg_index[9].leg,
+            -- 9 (Rear Center)
+            leg = leg_index[9].leg,
             ground_position = { 0, -3.25 },
-            blocking_legs = { 1, 2 },
-            mount_position = arachnophobia.leg_index[9].mount_position,
+            mount_position = leg_index[9].mount_position,
+            walking_group = 1,
         },
     },
     [4] = {
         {
-            -- 1
-            leg = arachnophobia.leg_index[1].leg,
+            -- 1 (Right Aft)
+            leg = leg_index[1].leg,
             ground_position = { 2.625, -2 },
-            blocking_legs = { 2 },
-            mount_position = arachnophobia.leg_index[1].mount_position,
+            mount_position = leg_index[1].mount_position,
+            walking_group = 1,
         },
         {
-            -- 4
-            leg = arachnophobia.leg_index[4].leg,
+            -- 4 (Right Fwd)
+            leg = leg_index[4].leg,
             ground_position = { 2.625, 2 },
-            blocking_legs = { 1 },
-            mount_position = arachnophobia.leg_index[4].mount_position,
+            mount_position = leg_index[4].mount_position,
+            walking_group = 2,
         },
         {
-            -- 5
-            leg = arachnophobia.leg_index[6].leg,
+            -- 5 (Left Aft)
+            leg = leg_index[6].leg,
             ground_position = { -2.625, -2 },
-            blocking_legs = { 4 },
-            mount_position = arachnophobia.leg_index[6].mount_position,
+            mount_position = leg_index[6].mount_position,
+            walking_group = 2,
         },
         {
-            -- 8
-            leg = arachnophobia.leg_index[8].leg,
+            -- 8 (Left Fwd)
+            leg = leg_index[8].leg,
             ground_position = { -2.625, 2 },
-            blocking_legs = { 3 },
-            mount_position = arachnophobia.leg_index[8].mount_position,
+            mount_position = leg_index[8].mount_position,
+            walking_group = 1,
         },
     },
     [5] = {
         {
-            -- 2
-            leg = arachnophobia.leg_index[2].leg,
+            -- 2 (Right Aft Middle)
+            leg = leg_index[2].leg,
             ground_position = { 3, -1 },
-            blocking_legs = { 5, 2 },
-            mount_position = arachnophobia.leg_index[2].mount_position,
+            mount_position = leg_index[2].mount_position,
+            walking_group = 1,
         },
         {
-            -- 4
-            leg = arachnophobia.leg_index[4].leg,
+            -- 4 (Right Fwd)
+            leg = leg_index[4].leg,
             ground_position = { 2, 2.75 },
-            blocking_legs = { 1, 4 },
-            mount_position = arachnophobia.leg_index[4].mount_position,
+            mount_position = leg_index[4].mount_position,
+            walking_group = 2,
         },
         {
-            -- 6
-            leg = arachnophobia.leg_index[6].leg,
+            -- 6 (Left Aft Middle)
+            leg = leg_index[6].leg,
             ground_position = { -3, -1 },
-            blocking_legs = { 5, 4 },
-            mount_position = arachnophobia.leg_index[6].mount_position,
+            mount_position = leg_index[6].mount_position,
+            walking_group = 2,
         },
         {
-            -- 8
-            leg = arachnophobia.leg_index[8].leg,
+            -- 8 (Left Fwd)
+            leg = leg_index[8].leg,
             ground_position = { -2, 2.75 },
-            blocking_legs = { 2, 3 },
-            mount_position = arachnophobia.leg_index[8].mount_position,
+            mount_position = leg_index[8].mount_position,
+            walking_group = 1,
         },
         {
-            -- 9
-            leg = arachnophobia.leg_index[9].leg,
+            -- 9 (Rear Center)
+            leg = leg_index[9].leg,
             ground_position = { 0, -3.25 },
-            blocking_legs = { 1, 3 },
-            mount_position = arachnophobia.leg_index[9].mount_position,
+            mount_position = leg_index[9].mount_position,
+            walking_group = 1,
         },
     },
     [6] = {
         {
-            -- 2
-            leg = arachnophobia.leg_index[2].leg,
+            -- 2 (Right Aft Middle)
+            leg = leg_index[2].leg,
             ground_position = { 2.25, -2.5 },
-            blocking_legs = { 2 },
-            mount_position = arachnophobia.leg_index[2].mount_position,
+            mount_position = leg_index[2].mount_position,
+            walking_group = 1,
         },
         {
-            -- 3
-            leg = arachnophobia.leg_index[3].leg,
+            -- 3 (Right Fwd Middle)
+            leg = leg_index[3].leg,
             ground_position = { 3.25, 0 },
-            blocking_legs = { 1, 3 },
-            mount_position = arachnophobia.leg_index[3].mount_position,
+            mount_position = leg_index[3].mount_position,
+            walking_group = 2,
         },
         {
-            -- 4
-            leg = arachnophobia.leg_index[4].leg,
+            -- 4 (Right Fwd)
+            leg = leg_index[4].leg,
             ground_position = { 2.25, 2.5 },
-            blocking_legs = { 2 },
-            mount_position = arachnophobia.leg_index[4].mount_position,
+            mount_position = leg_index[4].mount_position,
+            walking_group = 1,
         },
         {
-            -- 6
-            leg = arachnophobia.leg_index[6].leg,
+            -- 6 (Left Aft Middle)
+            leg = leg_index[6].leg,
             ground_position = { -2.25, -2.5 },
-            blocking_legs = { 5 },
-            mount_position = arachnophobia.leg_index[6].mount_position,
+            mount_position = leg_index[6].mount_position,
+            walking_group = 2,
         },
         {
-            -- 7
-            leg = arachnophobia.leg_index[7].leg,
+            -- 7 (Left Fwd Middle)
+            leg = leg_index[7].leg,
             ground_position = { -3.25, 0 },
-            blocking_legs = { 4, 6 },
-            mount_position = arachnophobia.leg_index[7].mount_position,
+            mount_position = leg_index[7].mount_position,
+            walking_group = 1,
         },
         {
-            -- 8
-            leg = arachnophobia.leg_index[8].leg,
+            -- 8 (Left Fwd)
+            leg = leg_index[8].leg,
             ground_position = { -2.25, 2.5 },
-            blocking_legs = { 5 },
-            mount_position = arachnophobia.leg_index[8].mount_position,
+            mount_position = leg_index[8].mount_position,
+            walking_group = 2,
         },
     },
     [7] = {
         {
-            -- 2
-            leg = arachnophobia.leg_index[2].leg,
+            -- 2 (Right Aft Middle)
+            leg = leg_index[2].leg,
             ground_position = { 2.625, -2 },
-            blocking_legs = { 2 },
-            mount_position = arachnophobia.leg_index[2].mount_position,
+            mount_position = leg_index[2].mount_position,
+            walking_group = 1,
         },
         {
-            -- 3
-            leg = arachnophobia.leg_index[3].leg,
+            -- 3 (Right Fwd Middle)
+            leg = leg_index[3].leg,
             ground_position = { 3, 0.75 },
-            blocking_legs = { 1, 3 },
-            mount_position = arachnophobia.leg_index[3].mount_position,
+            mount_position = leg_index[3].mount_position,
+            walking_group = 2,
         },
         {
-            -- 4
-            leg = arachnophobia.leg_index[4].leg,
+            -- 4 (Right Fwd)
+            leg = leg_index[4].leg,
             ground_position = { 1.625, 3 },
-            blocking_legs = { 2 },
-            mount_position = arachnophobia.leg_index[4].mount_position,
+            mount_position = leg_index[4].mount_position,
+            walking_group = 1,
         },
         {
-            -- 6
-            leg = arachnophobia.leg_index[6].leg,
+            -- 6 (Left Aft Middle)
+            leg = leg_index[6].leg,
             ground_position = { -2.625, -2 },
-            blocking_legs = { 5 },
-            mount_position = arachnophobia.leg_index[6].mount_position,
+            mount_position = leg_index[6].mount_position,
+            walking_group = 2,
         },
         {
-            -- 7
-            leg = arachnophobia.leg_index[7].leg,
+            -- 7 (Left Fwd Middle)
+            leg = leg_index[7].leg,
             ground_position = { -3, 0.75 },
-            blocking_legs = { 4, 6 },
-            mount_position = arachnophobia.leg_index[7].mount_position,
+            mount_position = leg_index[7].mount_position,
+            walking_group = 1,
         },
         {
-            -- 8
-            leg = arachnophobia.leg_index[8].leg,
+            -- 8 (Left Fwd)
+            leg = leg_index[8].leg,
             ground_position = { -1.625, 3 },
-            blocking_legs = { 5 },
-            mount_position = arachnophobia.leg_index[8].mount_position,
+            mount_position = leg_index[8].mount_position,
+            walking_group = 2,
         },
         {
-            -- 9
-            leg = arachnophobia.leg_index[9].leg,
+            -- 9 (Rear Center)
+            leg = leg_index[9].leg,
             ground_position = { 0, -3.25 },
-            blocking_legs = { 1, 2 },
-            mount_position = arachnophobia.leg_index[9].mount_position,
+            mount_position = leg_index[9].mount_position,
+            walking_group = 3,
         },
     },
 }
@@ -312,8 +312,7 @@ local function adjust_number_of_legs(spidertron_name)
     if num_legs == 8 then
         -- Make no changes
     else
-        -- Clear the legs table
-        spidertron_entity.spider_engine.legs = {}
+        local legs = {}
 
         for _, leg_details in pairs(leg_configurations[num_legs]) do
             ---@type data.SpiderLegSpecification
@@ -321,18 +320,14 @@ local function adjust_number_of_legs(spidertron_name)
                 leg = spidertron_name .. leg_details.leg,
                 mount_position = leg_details.mount_position,
                 ground_position = leg_details.ground_position,
-                blocking_legs = leg_details.blocking_legs,
-                leg_hit_the_ground_trigger = get_leg_hit_the_ground_trigger()
+                walking_group = leg_details.walking_group,
+                leg_hit_the_ground_trigger = get_leg_hit_the_ground_trigger(),
             }
 
-            -- Adjust acceleration to mitigate weird tripping behavior and restore
-            -- nominal movement speed.
-            if (num_legs == 3 or num_legs == 5) then
-                data.raw["spider-leg"][leg_details.leg].movement_acceleration = 0.08
-            end
-
-            table.insert(spidertron_entity.spider_engine.legs, leg)
+            table.insert(legs, leg)
         end
+
+        spidertron_entity.spider_engine.legs = legs
     end
 end
 
