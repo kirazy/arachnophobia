@@ -261,15 +261,16 @@ local function adjust_spidertron_legs(spidertron_name)
                             height = 112,
                             shift = util.by_pixel(0, -21),
                             draw_as_glow = true,
+                            direction_count = 1,
                             scale = 0.75,
                         },
                     }
                 },
                 bottom_end_length = 1,
-                middle = util.empty_sprite(),
+                middle = util.merge({ util.empty_sprite(), { direction_count = 1 } }),
                 middle_offset_from_bottom = 0,
                 middle_offset_from_top = 0,
-                top_end = util.empty_sprite(),
+                top_end = util.merge({ util.empty_sprite(), { direction_count = 1 } }),
                 top_end_length = 0
             }
         end
