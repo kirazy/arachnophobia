@@ -30,7 +30,7 @@
 
 -- Dictionary of spidertron sprite eye colors indexed by hue.
 ---@type { SpiderEyeHue: SpiderEyeColor }
-arachnophobia.eye_colors = {
+local eye_colors = {
     ["0"] = { mask = util.color("ff0000"), highlights = util.color("ff8080") },
     ["30"] = { mask = util.color("ff8000"), highlights = util.color("ffbf80") },
     ["60"] = { mask = util.color("ffff00"), highlights = util.color("ffff80") },
@@ -50,28 +50,20 @@ arachnophobia.eye_colors = {
 --- with a tintable base sprite.
 ---@param spidertron data.SpiderVehicleGraphicsSet
 local function replace_body_with_tintable_base(spidertron)
-    spidertron.animation = {
-        layers = {
-            -- Base
-            {
-                filename = arachnophobia.directory .. "/spidertron-body.png",
-                width = 66,
-                height = 70,
-                line_length = 8,
-                direction_count = 64,
-                shift = util.by_pixel(0, -19),
-                hr_version = {
-                    filename = arachnophobia.directory .. "/hr-spidertron-body.png",
-                    width = 132,
-                    height = 138,
-                    line_length = 8,
-                    direction_count = 64,
-                    shift = util.by_pixel(0, -19),
-                    scale = 0.5,
-                }
-            },
-        }
+spidertron.animation = {
+    layers = {
+        -- Base
+        {
+            filename = "__arachnophobia__/spidertron-body.png",
+            width = 132,
+            height = 138,
+            line_length = 8,
+            direction_count = 64,
+            shift = util.by_pixel(0, -19),
+            scale = 0.5,
+        },
     }
+}
 end
 
 ---comment
@@ -81,46 +73,27 @@ end
 local function insert_eye_layers(spidertron, eyes_layer_name, eyes_hue)
     -- Mask
     table.insert(spidertron.animation.layers, {
-        filename = arachnophobia.directory .. "/eyes/spidertron-eyes-" .. eyes_layer_name .. "-mask.png",
-        width = 66,
-        height = 70,
+        filename = "__arachnophobia__/eyes/spidertron-eyes-" .. eyes_layer_name .. "-mask.png",
+        width = 132,
+        height = 138,
         line_length = 8,
         direction_count = 64,
-        tint = arachnophobia.eye_colors[eyes_hue].mask,
+        tint = eye_colors[eyes_hue].mask,
         shift = util.by_pixel(0, -19),
-        hr_version = {
-            filename = arachnophobia.directory .. "/eyes/hr-spidertron-eyes-" .. eyes_layer_name .. "-mask.png",
-            width = 132,
-            height = 138,
-            line_length = 8,
-            direction_count = 64,
-            tint = arachnophobia.eye_colors[eyes_hue].mask,
-            shift = util.by_pixel(0, -19),
-            scale = 0.5,
-        }
+        scale = 0.5,
     })
 
     -- Highlights
     table.insert(spidertron.animation.layers, {
-        filename = arachnophobia.directory .. "/eyes/spidertron-eyes-" .. eyes_layer_name .. "-highlights.png",
-        width = 66,
-        height = 70,
+        filename = "__arachnophobia__/eyes/spidertron-eyes-" .. eyes_layer_name .. "-highlights.png",
+        width = 132,
+        height = 138,
         line_length = 8,
         direction_count = 64,
-        tint = arachnophobia.eye_colors[eyes_hue].highlights,
+        tint = eye_colors[eyes_hue].highlights,
         blend_mode = "additive-soft",
         shift = util.by_pixel(0, -19),
-        hr_version = {
-            filename = arachnophobia.directory .. "/eyes/hr-spidertron-eyes-" .. eyes_layer_name .. "-highlights.png",
-            width = 132,
-            height = 138,
-            line_length = 8,
-            direction_count = 64,
-            tint = arachnophobia.eye_colors[eyes_hue].highlights,
-            blend_mode = "additive-soft",
-            shift = util.by_pixel(0, -19),
-            scale = 0.5,
-        }
+        scale = 0.5,
     })
 end
 
@@ -130,12 +103,12 @@ end
 ---@param eyes_hue SpiderEyeHue
 local function adjust_spidertron_eyes_and_lights(spidertron, eyes_state, eyes_hue)
     if (eyes_state.primary and eyes_state.secondary and eyes_state.tertiary and eyes_state.back) then
-        -- We want all the eyes, use the simple spritesheet
+    -- We want all the eyes, use the simple spritesheet
         insert_eye_layers(spidertron, "all", eyes_hue)
     else
         -- Primary
-        if eyes_state.primary then
-            insert_eye_layers(spidertron, "front-primary", eyes_hue)
+            if eyes_state.primary then
+                insert_eye_layers(spidertron, "front-primary", eyes_hue)
         else
             -- Turn off the cone lights
             spidertron.light[2] = nil
@@ -145,11 +118,11 @@ local function adjust_spidertron_eyes_and_lights(spidertron, eyes_state, eyes_hu
         end
 
         -- Secondary
-        if eyes_state.secondary then
-            insert_eye_layers(spidertron, "front-secondary", eyes_hue)
+            if eyes_state.secondary then
+                insert_eye_layers(spidertron, "front-secondary", eyes_hue)
         else
             -- Turn off the cone lights
-            if not eyes_state.tertiary then
+                if not eyes_state.tertiary then
                 spidertron.light[3] = nil -- Shared with tertiary lights
             end
             spidertron.light[4] = nil
@@ -160,11 +133,11 @@ local function adjust_spidertron_eyes_and_lights(spidertron, eyes_state, eyes_hu
         end
 
         -- Tertiary
-        if eyes_state.tertiary then
-            insert_eye_layers(spidertron, "front-tertiary", eyes_hue)
+            if eyes_state.tertiary then
+                insert_eye_layers(spidertron, "front-tertiary", eyes_hue)
         else
             -- Turn off the cone lights
-            if not eyes_state.secondary then
+                if not eyes_state.secondary then
                 spidertron.light[3] = nil -- Shared with secondary lights
             end
             spidertron.light[5] = nil
@@ -176,8 +149,8 @@ local function adjust_spidertron_eyes_and_lights(spidertron, eyes_state, eyes_hu
         end
 
         -- Back
-        if eyes_state.back then
-            insert_eye_layers(spidertron, "back", eyes_hue)
+            if eyes_state.back then
+                insert_eye_layers(spidertron, "back", eyes_hue)
         else
             -- Turn off the light illumination
             spidertron.light_positions[3] = nil
@@ -204,22 +177,13 @@ local function adjust_spidertron_eyes_and_lights(spidertron, eyes_state, eyes_hu
     -- Insert the runtime mask
     table.insert(spidertron.animation.layers, {
         filename = "__base__/graphics/entity/spidertron/torso/spidertron-body-mask.png",
-        width = 66,
-        height = 50,
+        width = 130,
+        height = 100,
         line_length = 8,
         direction_count = 64,
         apply_runtime_tint = true,
         shift = util.by_pixel(0, -14),
-        hr_version = {
-            filename = "__base__/graphics/entity/spidertron/torso/hr-spidertron-body-mask.png",
-            width = 130,
-            height = 100,
-            line_length = 8,
-            direction_count = 64,
-            apply_runtime_tint = true,
-            shift = util.by_pixel(0, -14),
-            scale = 0.5,
-        }
+        scale = 0.5,
     })
 end
 

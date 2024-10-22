@@ -260,7 +260,7 @@ local function adjust_spidertron_legs(spidertron_name)
                 bottom_end = {
                     layers = {
                         {
-                            filename = arachnophobia.directory .. "/hr-spidertron-legs-lower-tip.png",
+                            filename = "__arachnophobia__/spidertron-legs-lower-tip.png",
                             width = 34,
                             height = 112,
                             shift = util.by_pixel(0, -21),
@@ -348,8 +348,8 @@ local function adjust_spidertron_icons(spidertron_name)
         local spidertron_technology = data.raw["technology"][spidertron_name]
 
         -- Set icon path
-        local spidertron_icon_path = arachnophobia.directory .. "/icons/temporary-icon.png"
-        local spidertron_technology_icon_path = arachnophobia.directory .. "/technology/temporary-tech-icon.png"
+    local spidertron_icon_path = "__arachnophobia__/icons/temporary-icon.png"
+    local spidertron_technology_icon_path = "__arachnophobia__/technology/temporary-tech-icon.png"
 
         -- Assign the icons
         if spidertron_entity then
