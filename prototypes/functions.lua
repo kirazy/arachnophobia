@@ -340,52 +340,47 @@ local function adjust_number_of_legs(spidertron_name)
 end
 
 local function adjust_spidertron_icons(spidertron_name)
-        -- Fetch the rest of the spidertron prototypes
-        local spidertron_item = data.raw["item-with-entity-data"][spidertron_name]
-        local spidertron_entity = data.raw["spider-vehicle"][spidertron_name]
-        local spidertron_explosion = data.raw["explosion"][spidertron_name .. "-explosion"]
-        local spidertron_remnant = data.raw["corpse"][spidertron_name .. "-remnants"]
-        local spidertron_technology = data.raw["technology"][spidertron_name]
+    -- Fetch the rest of the spidertron prototypes
+    local spidertron_item = data.raw["item-with-entity-data"][spidertron_name]
+    local spidertron_entity = data.raw["spider-vehicle"][spidertron_name]
+    local spidertron_explosion = data.raw["explosion"][spidertron_name .. "-explosion"]
+    local spidertron_remnant = data.raw["corpse"][spidertron_name .. "-remnants"]
+    local spidertron_technology = data.raw["technology"][spidertron_name]
 
-        -- Set icon path
+    -- Set icon path
     local spidertron_icon_path = "__arachnophobia__/icons/temporary-icon.png"
     local spidertron_technology_icon_path = "__arachnophobia__/technology/temporary-tech-icon.png"
 
-        -- Assign the icons
-        if spidertron_entity then
-            spidertron_entity.icon = spidertron_icon_path
-            spidertron_entity.icons = nil
-            spidertron_entity.icon_size = 64
-            spidertron_entity.icon_mipmaps = 1
-        end
+    -- Assign the icons
+    if spidertron_entity then
+        spidertron_entity.icon = spidertron_icon_path
+        spidertron_entity.icons = nil
+        spidertron_entity.icon_size = 64
+    end
 
-        if spidertron_item then
-            spidertron_item.icon = spidertron_icon_path
-            spidertron_item.icons = nil
-            spidertron_item.icon_size = 64
-            spidertron_item.icon_mipmaps = 1
-        end
+    if spidertron_item then
+        spidertron_item.icon = spidertron_icon_path
+        spidertron_item.icons = nil
+        spidertron_item.icon_size = 64
+    end
 
-        if spidertron_explosion then
-            spidertron_explosion.icon = spidertron_icon_path
-            spidertron_explosion.icons = nil
-            spidertron_explosion.icon_size = 64
-            spidertron_explosion.icon_mipmaps = 1
-        end
+    if spidertron_explosion then
+        spidertron_explosion.icon = spidertron_icon_path
+        spidertron_explosion.icons = nil
+        spidertron_explosion.icon_size = 64
+    end
 
-        if spidertron_remnant then
-            spidertron_remnant.icon = spidertron_icon_path
-            spidertron_remnant.icons = nil
-            spidertron_remnant.icon_size = 64
-            spidertron_remnant.icon_mipmaps = 1
-        end
+    if spidertron_remnant then
+        spidertron_remnant.icon = spidertron_icon_path
+        spidertron_remnant.icons = nil
+        spidertron_remnant.icon_size = 64
+    end
 
-        if spidertron_technology then
-            spidertron_technology.icon = spidertron_technology_icon_path
-            spidertron_technology.icons = nil
-            spidertron_technology.icon_size = 128
-            spidertron_technology.icon_mipmaps = nil
-        end
+    if spidertron_technology then
+        spidertron_technology.icon = spidertron_technology_icon_path
+        spidertron_technology.icons = nil
+        spidertron_technology.icon_size = 128
+    end
 end
 
 local spidertron_names = {
