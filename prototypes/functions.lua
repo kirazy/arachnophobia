@@ -3,10 +3,6 @@
 --
 -- See LICENSE.md in the project directory for license information.
 
--- Setup constants
-arachnophobia = {}
-arachnophobia.directory = "__arachnophobia__/graphics"
-
 local sprite_fields = {
     "upper_part",
     "lower_part",
@@ -19,7 +15,7 @@ local sprite_fields = {
 }
 
 -- Index of standard legs and mount positions
-arachnophobia.leg_index = {
+local leg_index = {
     -- Right Side (Back to front)
     { leg = "-leg-1", mount_position = util.by_pixel(15, -22) },
     { leg = "-leg-2", mount_position = util.by_pixel(23, -10) },
@@ -260,7 +256,7 @@ local function adjust_spidertron_legs(spidertron_name)
                 bottom_end = {
                     layers = {
                         {
-                            filename = "__arachnophobia__/spidertron-legs-lower-tip.png",
+                            filename = "__arachnophobia__/graphics/spidertron-legs-lower-tip.png",
                             width = 34,
                             height = 112,
                             shift = util.by_pixel(0, -21),
@@ -348,8 +344,8 @@ local function adjust_spidertron_icons(spidertron_name)
     local spidertron_technology = data.raw["technology"][spidertron_name]
 
     -- Set icon path
-    local spidertron_icon_path = "__arachnophobia__/icons/temporary-icon.png"
-    local spidertron_technology_icon_path = "__arachnophobia__/technology/temporary-tech-icon.png"
+    local spidertron_icon_path = "__arachnophobia__/graphics/icons/temporary-icon.png"
+    local spidertron_technology_icon_path = "__arachnophobia__/graphics/technology/temporary-tech-icon.png"
 
     -- Assign the icons
     if spidertron_entity then
@@ -399,8 +395,8 @@ for _, spidertron_name in pairs(spidertron_names) do
 end
 
 -- -- Figure out what icon we need to use
--- local icon_base = arachnophobia.directory.."/icons/spidertron-icon-"
--- local technology_icon_base = arachnophobia.directory.."/technology/spidertron-technology-"
+-- local icon_base = "__arachnophobia__/graphics/icons/spidertron-icon-"
+-- local technology_icon_base = "__arachnophobia__/graphics/technology/spidertron-technology-"
 -- local spidertron_icon_path, spidertron_technology_icon_path
 
 -- if settings.startup["arachnophobia-leg-visibility"].value == "hidden" then

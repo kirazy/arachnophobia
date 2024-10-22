@@ -3,6 +3,8 @@
 --
 -- See LICENSE.md in the project directory for license information.
 
+local eye_colors = require("eye_colors")
+
 local function create_label_sprite(hue)
     data:extend({
         {
@@ -10,22 +12,22 @@ local function create_label_sprite(hue)
             name = "arachnophobia-eyes-color-" .. hue,
             layers = {
                 {
-                    filename = arachnophobia.directory .. "/sprites/eyes-gui-icon-base.png",
+                    filename = "__arachnophobia__/graphics/sprites/eyes-gui-icon-base.png",
                     size = 40,
                     mipmap_count = 2,
                     flags = { "gui-icon" }
                 },
                 {
-                    filename = arachnophobia.directory .. "/sprites/eyes-gui-icon-mask.png",
+                    filename = "__arachnophobia__/graphics/sprites/eyes-gui-icon-mask.png",
                     size = 40,
-                    tint = arachnophobia.eye_colors[hue].mask,
+                    tint = eye_colors[hue].mask,
                     mipmap_count = 2,
                     flags = { "gui-icon" }
                 },
                 {
-                    filename = arachnophobia.directory .. "/sprites/eyes-gui-icon-highlights.png",
+                    filename = "__arachnophobia__/graphics/sprites/eyes-gui-icon-highlights.png",
                     size = 40,
-                    tint = arachnophobia.eye_colors[hue].highlights,
+                    tint = eye_colors[hue].highlights,
                     blend_mode = "additive-soft",
                     mipmap_count = 2,
                     flags = { "gui-icon" }
@@ -41,7 +43,7 @@ local function create_description_sprite(name, num)
         {
             type = "sprite",
             name = "arachnophobia-light-guide-" .. name .. "-" .. num,
-            filename = arachnophobia.directory .. "/sprites/light-guides/" .. name .. "/" .. num .. ".png",
+            filename = "__arachnophobia__/graphics/sprites/light-guides/" .. name .. "/" .. num .. ".png",
             size = 40,
             mipmap_count = 2,
             flags = { "gui-icon" },
@@ -49,7 +51,7 @@ local function create_description_sprite(name, num)
     })
 end
 
-for k, _ in pairs(arachnophobia.eye_colors) do
+for k, _ in pairs(eye_colors) do
     create_label_sprite(k)
 end
 
