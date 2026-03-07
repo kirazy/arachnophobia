@@ -354,6 +354,12 @@ local function adjust_spidertron_icons(spidertron_name)
         spidertron_item.icon = spidertron_icon_path
         spidertron_item.icons = nil
         spidertron_item.icon_size = 64
+        spidertron_item.icon_tintable = "__arachnophobia__/graphics/icons/temporary-icon-mask.png"
+        spidertron_item.icon_tintables = nil
+        spidertron_item.icon_tintable_size = 64
+        spidertron_item.icon_tintable_mask = "__arachnophobia__/graphics/icons/temporary-icon-mask.png"
+        spidertron_item.icon_tintable_masks = nil
+        spidertron_item.icon_tintable_mask_size = 64
     end
 
     if spidertron_explosion then
