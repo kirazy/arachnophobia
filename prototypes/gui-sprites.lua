@@ -33,7 +33,6 @@ local function create_label_sprite(hue)
 					flags = { "gui-icon" },
 				},
 			},
-			flags = { "gui-icon" },
 		},
 	})
 end
