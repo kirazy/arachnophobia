@@ -1,3 +1,5 @@
+---@namespace Arachnophobia
+
 -- Copyright (c) 2024 Kirazy
 -- Part of Arachnophobia
 --
@@ -29,7 +31,7 @@
 ---@field highlights data.Color
 
 -- Dictionary of spidertron sprite eye colors indexed by hue.
----@type { SpiderEyeHue: SpiderEyeColor }
+---@type { [SpiderEyeHue]: SpiderEyeColor }
 local eye_colors = {
 	["0"] = { mask = util.color("ff0000"), highlights = util.color("ff8080") },
 	["30"] = { mask = util.color("ff8000"), highlights = util.color("ffbf80") },
