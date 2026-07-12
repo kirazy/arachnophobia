@@ -1,16 +1,16 @@
 {
-    "name": "arachnophobia",
-    "version": "2.1.0",
-    "factorio_version": "2.1",
-    "title": "Arachnophobia",
-    "author": "Kirazy",
-    "contact": "https://discord.gg/qAvSyzZFPr",
-    "homepage": "https://forums.factorio.com/viewtopic.php?f=190&t=88051",
-    "dependencies": [
-        "base",
-        "? Constructron-Continued"
-    ],
-    "package": {
-        "git_publish_branch": "dev2.1"
-    }
+	"name": "arachnophobia",
+	"version": "2.1.0",
+	"factorio_version": "2.1",
+	"title": "Arachnophobia",
+	"author": "Kirazy",
+	"contact": "https://discord.gg/qAvSyzZFPr",
+	"homepage": "https://forums.factorio.com/viewtopic.php?f=190&t=88051",
+	"dependencies": [
+		"base",
+		"? Constructron-Continued"
+	],
+	"package": {
+		"git_publish_branch": "dev2.1"
+	}
 }
