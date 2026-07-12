@@ -1,3 +1,5 @@
+---@namespace Arachnophobia
+
 -- Copyright (c) 2024 Kirazy
 -- Part of Arachnophobia
 --
